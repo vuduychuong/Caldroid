@@ -6,8 +6,12 @@ android {
 
     defaultConfig {
         applicationId "com.caldroidsample"
-        minSdkVersion 8
+        minSdkVersion 14
         targetSdkVersion 22
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     buildTypes {

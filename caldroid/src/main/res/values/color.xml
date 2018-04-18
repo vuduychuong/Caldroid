@@ -3,6 +3,7 @@
 
     <color name="caldroid_white">#FFFFFF</color>
     <color name="caldroid_black">#000000</color>
+    <color name="caldroid_black_2">#333333</color>
     <color name="caldroid_transparent">#00000000</color>
     <!-- For settings framework -->
     <color name="caldroid_lighter_gray">#ddd</color>

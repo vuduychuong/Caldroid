@@ -271,7 +271,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
 
     private void resetCustomResources(CellView cellView) {
         cellView.setBackgroundResource(defaultCellBackgroundRes);
-        cellView.setTextColor(defaultTextColorRes);
+        //cellView.setTextColor(defaultTextColorRes);
     }
 
     /**
@@ -283,7 +283,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
      * @param position
      * @param cellView
      */
-    protected void customizeTextView(int position, CellView cellView) {
+    protected void customizeCellView(int position, CellView cellView) {
         // Get the padding of cell so that it can be restored later
         int topPadding = cellView.getPaddingTop();
         int leftPadding = cellView.getPaddingLeft();
@@ -321,16 +321,21 @@ public class CaldroidGridAdapter extends BaseAdapter {
 
         cellView.refreshDrawableState();
 
+        cellView.setDate(String.valueOf(dateTime.getDay()));
+
+        cellView.setHeight(240);
+
         // Set text
-        cellView.setText(String.valueOf(dateTime.getDay()));
+        //cellView.setText(String.valueOf(dateTime.getDay()));
 
         // Set custom color if required
-        setCustomResources(dateTime, cellView, cellView);
+        //setCustomResources(dateTime, cellView, cellView);
 
         // Somehow after setBackgroundResource, the padding collapse.
         // This is to recover the padding
-        cellView.setPadding(leftPadding, topPadding, rightPadding,
-                bottomPadding);
+
+        //cellView.setPadding(leftPadding, topPadding, rightPadding,
+        //        bottomPadding);
     }
 
     @Override
@@ -355,13 +360,13 @@ public class CaldroidGridAdapter extends BaseAdapter {
 
 		// For reuse
 		if (convertView == null) {
-			final int squareDateCellResource = squareTextViewCell ? R.layout.square_date_cell : R.layout.normal_date_cell;
-			cellView = (CellView) localInflater.inflate(squareDateCellResource, parent, false);
+			//final int squareDateCellResource = squareTextViewCell ? R.layout.square_date_cell : R.layout.normal_date_cell;
+			cellView = (CellView) localInflater.inflate(R.layout.custom_normal_date_cell, parent, false);
 		} else {
 			cellView = (CellView) convertView;
 		}
 
-		customizeTextView(position, cellView);
+		customizeCellView(position, cellView);
 
 		return cellView;
 	}
